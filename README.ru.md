@@ -47,3 +47,7 @@
 ## Лицензия
 
 Исходный код бота лицензирован под GNU AGPL-3.0. Объяснение: https://choosealicense.com/licenses/agpl-3.0
+
+## Смотрите также
+
+- [telegram-antispam](https://github.com/illright/telegram-antispam) — мой простой антиспам-бот для самостоятельного хостинга

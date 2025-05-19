@@ -47,3 +47,7 @@ The `setup_bot.py` is a script that is used to connect the bot to the Modal app 
 ## License
 
 The source code of the bot is licensed under GNU AGPL-3.0. Explained: https://choosealicense.com/licenses/agpl-3.0
+
+## See also
+
+- [telegram-antispam](https://github.com/illright/telegram-antispam) — my simple self-hostable antispam bot
