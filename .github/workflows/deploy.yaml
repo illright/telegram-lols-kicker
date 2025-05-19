@@ -1,0 +1,29 @@
+name: Deploy to Modal
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca # v6.0.1
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Sign in to Modal
+        run: uv run modal token set --token-id ${{ vars.MODAL_API_TOKEN_ID }} --token-secret $MODAL_API_TOKEN_SECRET
+        env:
+          MODAL_API_TOKEN_SECRET: ${{ secrets.MODAL_API_TOKEN_SECRET }}
+
+      - name: Deploy to Modal
+        run: uv run modal deploy -m main > /dev/null
